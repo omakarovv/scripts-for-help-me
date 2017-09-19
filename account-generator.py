@@ -14,7 +14,7 @@ user_prefix = str(input("Input prefix:"))
 conn = pymysql.connect(host=dbserver, user = dbuser, passwd = dbpassword, db= dbname, autocommit=True)
 cur = conn.cursor()
 
-cur.execute("SELECT * FROM virtual_users WHERE user LIKE"+"'"+user_prefix+"%"+"'")
+cur.execute("SELECT * FROM virtual_users WHERE user LIKE %s", user_prefix+"%")
 for response in cur:
     print(response)
 
