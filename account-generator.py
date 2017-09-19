@@ -25,7 +25,7 @@ def create_account(end_number):
     for i in range(start_number, end_number + 1):
         account = "%s-%d" % (user_prefix, i)
 
-        characters = string.ascii_letters + string.punctuation  + string.digits
+        characters = string.ascii_letters + string.digits
 
         upassword =  "".join(random.choice(characters) for x in range(random.randint(6, 8)))
 
