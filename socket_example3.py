@@ -4,7 +4,7 @@ import os
 import re
 from socket import *
 
-server = '10.10.10.10' # IP or hostname
+server = '192.168.1.55' # IP or hostname
 listen_port = 5775
 
 class Srvstat:
@@ -14,8 +14,9 @@ class Srvstat:
         self.socket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
         self.socket.bind((host, port))
         self.socket.listen(5)
-        print ("Server started on: Host" + " " +
-               str(self.socket.getsockname()[0]) + " and port" + " " + str(self.socket.getsockname()[1]))
+#        print ("Server started on: Host" + " " +
+#              str(self.socket.getsockname()[0]) + " and port" + " " + str(self.socket.getsockname()[1]))
+        print(self.socket)
 
     def process(self):
 
