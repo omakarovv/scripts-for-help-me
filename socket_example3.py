@@ -31,10 +31,11 @@ class Srvstat:
                 if re.match('get\s+ifstat'.encode(), request, re.IGNORECASE):
                     csocket.send(str(os.popen('/sbin/ifconfig').read()).encode())
                 elif re.match('quit'.encode(), request, re.IGNORECASE):
-                    break
+                    self.socket.detach()
+                    self.socket.close()
                 else:
-                    csocket.send('Unknown command.\n')
-                    csocket.close()
+                    csocket.send('Unknown command.\n'.encode())
+
 
 if __name__ == '__main__':
     serv = Srvstat()
