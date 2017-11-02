@@ -3,7 +3,7 @@ import os
 import re
 from socket import *
 
-server = '192.168.1.55' # IP or hostname
+server = '10.10.10.10' # IP or hostname
 listen_port = 5775
 
 class Srvstat:
