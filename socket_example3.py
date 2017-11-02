@@ -27,7 +27,7 @@ class Srvstat:
                 raise
 
             while True:
-                request = csocket.recv(64)
+                request = csocket.recv(1024)
                 if re.match('get\s+ifstat'.encode(), request, re.IGNORECASE):
                     csocket.send(str(os.popen('/sbin/ifconfig').read()).encode())
                 elif re.match('quit'.encode(), request, re.IGNORECASE):
