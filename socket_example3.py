@@ -3,17 +3,17 @@ import os
 import re
 from socket import *
 
-server = '10.10.10.10' # IP or hostname
+server = '192.168.1.55' # IP or hostname
 listen_port = 5775
 
 class Srvstat:
+
     def connect(self, host = server, port = listen_port):
         self.socket = socket(AF_INET, SOCK_STREAM)          # For local access use AF_UNIX
         self.socket.bind((host, port))
         self.socket.listen(5)
-        server_info = self.socket.getsockname()
         print ("Server started on: Host" + " " +
-               str(server_info[0]) + " and port" + " " + str(server_info[1]))
+               str(self.socket.getsockname()[0]) + " and port" + " " + str(self.socket.getsockname()[1]))
 
     def process(self):
 
@@ -44,6 +44,7 @@ if __name__ == '__main__':
 
 
 """
+It's example script.
 For use:
  - start script on the server
  - telnet from remote host on defined port and ip
