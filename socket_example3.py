@@ -4,7 +4,7 @@ import os
 import re
 from socket import *
 
-server = '192.168.1.55' # IP or hostname
+server = '10.10.10.10' # IP or hostname
 listen_port = 5775
 
 class Srvstat:
@@ -34,7 +34,8 @@ class Srvstat:
                     csocket.send(str(os.popen('/sbin/ifconfig').read()).encode())
                 elif re.match('quit'.encode(), request, re.IGNORECASE):
                     self.socket.detach()
-                    self.socket.shutdown()
+                    self.socket.shutdown(SHUT_WR)
+
                 else:
                     csocket.send('Unknown command.\n'.encode())
 
