@@ -13,7 +13,7 @@ class remote_control:
         self.socket = socket(AF_INET, SOCK_STREAM)          # For local access use AF_UNIX
         self.socket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
         self.socket.bind((host, port))
-        self.socket.listen(5)
+        self.socket.listen(2)
 #        print ("Server started on: Host" + " " +
 #              str(self.socket.getsockname()[0]) + " and port" + " " + str(self.socket.getsockname()[1]))
         print(self.socket)
@@ -24,23 +24,21 @@ class remote_control:
             try:
                 csocket, caddress = self.socket.accept()
                 csocket.send('Connection established on. Please input your request.\n'.encode())
-
-
             except TypeError:
                 raise
 
             while True:
-                request = csocket.recv(1024)
+                request = csocket.recv(4096)
                 print(request)
                 if re.match('get\s+ifstat'.encode(), request, re.IGNORECASE):
                     csocket.send(str(os.popen('/sbin/ifconfig').read()).encode())
                 elif re.match('quit'.encode(), request, re.IGNORECASE):
-                    self.socket.shutdown(SHUT_WR)
-                    self.socket.close()
-
-
+                    csocket.send('Good bye.\n'.encode())
+                    csocket.close()
+                    break
                 else:
                     csocket.send('Unknown command.\n'.encode())
+
 
 
 if __name__ == '__main__':
