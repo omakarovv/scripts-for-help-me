@@ -53,6 +53,7 @@ if __name__ == '__main__':
 """
 It's example script.
 For use:
+ - Add your own IP or hostname and port
  - start script on the server
  - telnet from remote host on defined port and ip
  - and input command: get ifstat
