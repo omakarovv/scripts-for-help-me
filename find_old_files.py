@@ -7,7 +7,7 @@ import datetime
 
 
 # Directory for search.
-dir = '/home'
+dir = '/'
 
 # REGEX for exclude path: dev,sys,proc.
 pattern = re.compile('^\/[dev,proc,sys]\/*')
