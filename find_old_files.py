@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import os
 import sys
@@ -7,7 +7,7 @@ import datetime
 
 
 # Directory for search.
-dir = '/'
+dir = '/home'
 
 # REGEX for exclude path: dev,sys,proc.
 pattern = re.compile('^\/[dev,proc,sys]\/*')
@@ -35,7 +35,7 @@ for root, dirs, files in os.walk(dir):
 # Else check file exist and file size.
         else:
             if os.path.exists(fullname) and os.path.isfile(fullname):
-                sz = os.path.getsize(fullname) >> 20L
+                sz = os.path.getsize(fullname) / 1000 / 1000
 
                 dmodify = (
                    datetime.datetime.fromtimestamp(os.path.getmtime(fullname))
@@ -43,7 +43,6 @@ for root, dirs, files in os.walk(dir):
 
                 days_diff = (dnow-dmodify).days
 
-                if sz > 100 and days_diff <= 30:
-                    print '%s |Size is: %sMb | Last Modified: %s Days ago' % (
-                          (fullname, sz, days_diff)
-                         )
+                if sz > 100 and days_diff >= 30:
+                    print('{} | Size is: {}Mb | Last Modified: {} Days ago'
+                          .format(fullname, round(sz, 2), days_diff))
