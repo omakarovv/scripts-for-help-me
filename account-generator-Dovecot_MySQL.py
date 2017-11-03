@@ -29,7 +29,8 @@ def create_account(end_number):
 
         upassword =  "".join(random.choice(characters) for x in range(random.randint(6, 8)))
 
-        cur.execute("INSERT INTO virtual_users (domain_id, password, user) VALUES (1, SHA2('%s', 256), '%s@example.com');" % (upassword, account))
+        cur.execute("INSERT INTO virtual_users (domain_id, password, user)"
+                    " VALUES (1, SHA2('%s', 256), '%s@example.com');" % (upassword, account))
 
         print(account + domain_name + " ", " " + upassword, sep=":")
 
