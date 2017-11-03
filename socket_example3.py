@@ -7,7 +7,7 @@ from socket import *
 server = '192.168.1.55' # IP or hostname
 listen_port = 5775
 
-class Srvstat:
+class remote_control:
 
     def connect(self, host = server, port = listen_port):
         self.socket = socket(AF_INET, SOCK_STREAM)          # For local access use AF_UNIX
@@ -44,16 +44,15 @@ class Srvstat:
 
 
 if __name__ == '__main__':
-    serv = Srvstat()
-    serv.connect()
-    serv.process()
+    remote_access = remote_control()
+    remote_access.connect()
+    remote_access.process()
 
 
 
 """
 It's example script.
 For use:
- - Add your own IP or hostname and port
  - start script on the server
  - telnet from remote host on defined port and ip
  - and input command: get ifstat
