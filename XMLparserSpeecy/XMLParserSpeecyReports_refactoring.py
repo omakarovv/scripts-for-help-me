@@ -14,6 +14,7 @@ pattern = "*.xml"
 
 
 for path, subdirs, files in os.walk(root):
+          
     for name in files:
         if fnmatch(name, pattern):
             filelist = os.path.join(path, name)
