@@ -9,7 +9,7 @@ hwpath = ["CPU", "Motherboard", "RAM", "Storage", "Operating System", "Graphics"
 details = ["Cores", "Total memory slots", "Used memory slots",
           "Free memory slots", "Size", "Manufacturer", "Max Bandwidth"]
 
-root = '/home/cmg/Документы/InventCMG/CMG Speecy/CMG Speecy'
+root = '/home/reports/SpeecyReports'
 pattern = "*.xml"
 
 
