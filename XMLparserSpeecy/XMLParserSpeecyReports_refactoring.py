@@ -7,9 +7,9 @@ from fnmatch import fnmatch
 hwpath = ["CPU", "Motherboard", "RAM", "Storage", "Operating System", "Graphics"]
 
 details = ["Cores", "Total memory slots", "Used memory slots",
-          "Free memory slots", "Size", "Manufacturer", "Max Bandwidth"]
+          "Size", "Manufacturer", "Max Bandwidth"]
 
-root = '/home/reports/SpeecyReports'
+root = '/home/cmg/Документы/InventCMG/CMG Speecy/CMG Speecy'
 pattern = "*.xml"
 
 
@@ -29,16 +29,16 @@ for path, subdirs, files in os.walk(root):
                 for rootsection in tree.findall('./mainsection/[@title="%s"]' % section):
 
                     for subsection in details:
+
                         for hw_info in rootsection.findall('./section/entry/[@title="%s"]' % subsection):
-                            print(hw_info.get('title') + ":" + hw_info.get('value'))
+                            print(hw_info.get('title') + ": " + hw_info.get('value'))
 
                         for detailed_info in rootsection.findall('./section/section/entry/[@title="%s"]' % subsection):
-                            print(detailed_info.get('title') + ":" + detailed_info.get('value'))
+                            print(detailed_info.get('title') + ":" +  detailed_info.get('value'))
 
                 ### General information ###
 
                 for hw in tree.findall("./mainsection/section/[@title='%s']" % section):
                     for vol in hw.findall('entry'):
                         print(vol.get('title'))
-
 print("\n")
