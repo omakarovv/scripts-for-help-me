@@ -1,0 +1,24 @@
+####CPU###
+Cores 2
+Intel Core i7 4500U @ 1.80GHz
+Haswell ULT 22nm Technology
+####Motherboard###
+Dell Inc. 0PHTY0 (U3E1)
+####RAM###
+Total memory slots 2
+Used memory slots 2
+Slot number 1 4096 MBytes Micron Technology PC3-12800 (800 MHz)
+Slot number 2 4096 MBytes Micron Technology PC3-12800 (800 MHz)
+
+8,00ГБ Dual-Channel DDR3 @ 798MHz (11-11-11-28)
+####Storage###
+931GB TOSHIBA MQ01ABD100 (SATA)
+3GB Generic Flash Disk USB Device (USB)
+####Operating System###
+Майкрософт Windows 8.1 для одного языка 64-bit
+####Graphics###
+Generic PnP Monitor (1366x768@60Hz)
+Intel HD Graphics Family (Dell)
+2048MB ATI AMD Radeon HD 8850M (Dell)
+CrossFire Disabled
+###########
