@@ -5,7 +5,7 @@ from xml.etree import ElementTree
 from fnmatch import fnmatch
 
 hwpath = ["CPU", "Motherboard", "RAM", "Storage", "Operating System", "Graphics"]
-root = '/home/SpeecyReports'
+root = '/home/reports/SpeecyReports'
 pattern = "*.xml"
 
 for path, subdirs, files in os.walk(root):
