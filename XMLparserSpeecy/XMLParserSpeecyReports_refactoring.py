@@ -12,7 +12,6 @@ details = ["Cores", "Total memory slots", "Used memory slots",
 root = '/home/Inventarization/SpeecyReports'
 pattern = "*.xml"
 
-
 for path, subdirs, files in os.walk(root):
           
     for name in files:
