@@ -12,7 +12,6 @@ class log_presenter:
             for line in f:
                 yield "".join(line) + '\n'
 
-
 log_viewer = log_presenter()
 
 @app.route('/')
