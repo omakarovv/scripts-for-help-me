@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-from flask import Flask, Response
-import time
-import os
 
 class log_presenter:
 
