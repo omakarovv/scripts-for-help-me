@@ -35,7 +35,7 @@ for root, dirs, files in os.walk(dir):
 # Else check file exist and file size.
         else:
             if os.path.exists(fullname) and os.path.isfile(fullname):
-                sz = os.path.getsize(fullname) / 1000 / 1000
+                sz = os.path.getsize(fullname) / 1024 / 1024
 
                 dmodify = (
                    datetime.datetime.fromtimestamp(os.path.getmtime(fullname))
