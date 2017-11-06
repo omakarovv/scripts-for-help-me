@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
+from flask import Flask, Response
 import time
 import os
 
-with open('test_log.log', 'r') as f:
-    while 1:
-        where = f.tell()
+class log_presenter:
 
-        if os.stat('test_log.log').st_size == 0:
-            where = 0
+    def proccess(self):
+        with open('test_log.log', 'r') as f:
+            while 1:
+                for line in f:
+                    self.log_collector(line)
 
-        line = f.readline()
-        if not line:
-            time.sleep(1)
-            f.seek(where)
-        else:
-            print(line)
+    def log_collector(self, line):
+         print(line)
+
+
+if __name__ == '__main__':
+
+    log_viewer = log_presenter()
+
+    try:
+        log_viewer.proccess()
+
+    except TypeError:
+        raise
