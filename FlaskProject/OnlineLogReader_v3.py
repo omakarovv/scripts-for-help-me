@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+from flask import Flask, Response
+import time
+import os
+
+app = Flask(__name__)
+
+def collect_rows():
+    with open('test_log.log', 'r') as f:
+        while 1:
+            where = f.tell()
+
+            if os.stat('test_log.log').st_size == 0:
+                where = 0
+
+            for line in f:
+                yield "".join(line) + '\n'
+
+            f.seek(where)
+
+@app.route('/')
+
+def present_log():
+    return Response(collect_rows(), mimetype='text')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080, debug=True)
