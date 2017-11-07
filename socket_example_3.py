@@ -43,7 +43,7 @@ class remote_control:
 if __name__ == '__main__':
     remote_access = remote_control()
     try:
-        remote_access.connect()
+#        remote_access.connect()
         remote_access.process()
     except KeyboardInterrupt:
         print('\n','Server stopped')
