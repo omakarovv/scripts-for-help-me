@@ -9,7 +9,7 @@ listen_port = 5775
 
 class remote_control:
 
-    def connect(self, host = server, port = listen_port):
+    def __init__(self, host = server, port = listen_port):
         self.socket = socket(AF_INET, SOCK_STREAM)          # For local access use AF_UNIX
         self.socket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
         self.socket.bind((host, port))
