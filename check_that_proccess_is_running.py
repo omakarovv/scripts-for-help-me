@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 
-
 import os
 import time
-
 
 pid = os.getpid()
 pid_file = "pid_file"
