@@ -8,16 +8,16 @@ pid_file = "pid_file"
 
 def is_proccess_running():
     if not os.path.exists(pid_file):
-        return True
+        return False
     else:
        old_pid_file = open(pid_file, 'r')
        old_pid = int(old_pid_file.readline())
        try:
            check_old_pid = os.kill(old_pid, 0)
        except:
-           return True
+           return False
            
-if is_proccess_running():
+if is_proccess_running() == False:
     with open(pid_file, 'w') as f:
         f.write(str(pid))
 
